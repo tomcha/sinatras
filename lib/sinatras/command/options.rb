@@ -8,21 +8,9 @@ module Sinatras
       def self.parse!(argv)
         options = {}
 
-        sub_command_parsers = Hash.new do |k, v|
-          raise ArgumentError, "'#{v}' is not sinatras sub command"
-        end
+        sub_command_parsers = create_sub_command_parsers(options)
+        command_parser = create_command_parser
 
-        sub_command_parsers['new'] = OptionParser.new do |opt|
-          opt.on('VAL', 'project name'){|v| options[:name] = v}
-        end
-
-        command_parser = OptionParser.new do |opt|
-          opt.on_head('-v', '--version', 'show program version') do |v|
-            opt.version = Sinatras::VERSION
-            puts opt.ver
-            exit
-          end
-        end
 
         begin
           command_parser.order!(argv)
@@ -36,6 +24,27 @@ module Sinatras
         end
 
         options
+      end
+
+      def self.create_sub_command_parsers(options)
+        sub_command_parsers = Hash.new do |k, v|
+          raise ArgumentError, "'#{v}' is not sinatras sub command"
+        end
+
+        sub_command_parsers['new'] = OptionParser.new do |opt|
+          opt.on('VAL', 'project name'){|v| options[:name] = v}
+        end
+        sub_command_parsers
+      end
+
+      def self.create_command_parser
+        command_parser = OptionParser.new do |opt|
+          opt.on_head('-v', '--version', 'show program version') do |v|
+            opt.version = Sinatras::VERSION
+            puts opt.ver
+            exit
+          end
+        end
       end
     end
   end
