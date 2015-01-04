@@ -19,6 +19,11 @@ module Sinatras
 
           sub_command_parsers[options[:command]].parse!(argv)
 
+          if options[:command] == 'new'
+            raise ArgumentError, "#{options[:command]} project name not found." if argv.empty?
+            options[:projectname] = String(argv.first)
+          end
+
         rescue OptionParser::MissingArgument, OptionParser::InvalidOption, ArgumentError => e
           abort e.message
         end
@@ -32,7 +37,7 @@ module Sinatras
         end
 
         sub_command_parsers['new'] = OptionParser.new do |opt|
-          opt.on('VAL', 'project name'){|v| options[:name] = v}
+#          opt.on('VAL', 'project name'){|v| options[:name] = v}
         end
         sub_command_parsers
       end
