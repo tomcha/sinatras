@@ -1,5 +1,3 @@
+require 'sinatras/command'
+require 'sinatras/command/options'
 require "sinatras/version"
-
-module Sinatras
-  # Your code goes here...
-end

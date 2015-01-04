@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
 
 require 'sinatras'
+Sinatras::Command.run(ARGV)
