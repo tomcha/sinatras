@@ -113,6 +113,7 @@ __EOS__
       File.chmod(0644, "./" + appname + "/app/views/index.haml")
       puts "change permission file ./" + appname + "/app/views/index.haml"
       `cd ./#{appname}`
+      `pwd`
       `git init`
       `git add -A`
       `git commit -m 'first commit'`
