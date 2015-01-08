@@ -73,7 +73,7 @@ module Sinatras
           end
         end
       end
+      private_class_method :create_sub_command_parsers, :create_command_parser, :help_sub_command
     end
   end
-  private_class_method :create_sub_command_parsers, :create_command_parser, :help_sub_command
 end
