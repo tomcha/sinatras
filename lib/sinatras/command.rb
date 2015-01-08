@@ -112,13 +112,15 @@ __EOS__
       puts "change permission file ./" + appname + "/app/views/layout.haml"
       File.chmod(0644, "./" + appname + "/app/views/index.haml")
       puts "change permission file ./" + appname + "/app/views/index.haml"
-      `cd ./#{appname}`
-      `pwd`
-      `git init`
-      `git add -A`
-      `git commit -m 'first commit'`
-      #`cd ../`
 
+      Dir.chdir("./#{appname}") do
+        init = `git init`
+        puts "git init is success." if init
+        add = `git add -A`
+        puts "git add -A is success." if add
+        comm = `git commit -m 'first commit'`
+        puts "git commit -m 'first commit' is success." if comm
+      end
     end
   end
 end
