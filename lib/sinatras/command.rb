@@ -11,7 +11,6 @@ module Sinatras
 
       tasks = case sub_command
               when 'new'
-                p options
                 new(options)
               end
     end
@@ -28,6 +27,10 @@ module Sinatras
       appname = options[:appname]
       if options[:appname] !~ /^[a-z_]+[a-zA-Z0-9_]*$/
         puts 'appname format is (a-z or _ ) + (alphabet,0-9, and _)'
+        exit
+      end
+      if (File.directory?(appname))
+        puts 'appname same name of the directory exist'
         exit
       end
       Dir.mkdir(appname, 0755)

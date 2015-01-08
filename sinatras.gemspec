@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Sinatras::VERSION
   spec.authors       = ["Tomcha"]
   spec.email         = ["tomcha@tomcha.net"]
-  spec.summary       = %q{TODO sinatra's webapplication skelton make tool}
-  spec.description   = %q{TODO sinatra's app make tool}
+  spec.summary       = %q{sinatra's webapplication skelton make tool}
+  spec.description   = %q{sinatra's app make tool}
   spec.homepage      = ""
   spec.license       = "MIT"
 
