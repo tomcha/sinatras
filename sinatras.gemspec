@@ -6,11 +6,11 @@ require 'sinatras/version'
 Gem::Specification.new do |spec|
   spec.name          = "sinatras"
   spec.version       = Sinatras::VERSION
-  spec.authors       = ["Tomcha"]
+  spec.authors       = ["tomcha"]
   spec.email         = ["tomcha@tomcha.net"]
-  spec.summary       = %q{sinatra's webapplication skelton make tool}
+  spec.summary       = %q{It is a tool to create a template of web application to use the 'Sinatra'.}
   spec.description   = %q{sinatra's app make tool}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/tomcha/sinatras"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
