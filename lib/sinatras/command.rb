@@ -124,6 +124,7 @@ __EOS__
         comm = `git commit -m 'first commit'`
         puts "git commit -m 'first commit' is success." if comm
       end
+      1
     end
   end
 end
