@@ -7,10 +7,25 @@ describe Sinatras do
   end
   
   describe Sinatras::Command do
+
     describe '#execute' do
     end
+
     describe 'new' do
     end
+
+    describe '#make_dir' do
+    end
+
+    describe '#make_file' do
+    end
+
+    describe '#change_permission' do
+    end
+    
+    describe '#do_gitcommand' do
+    end
+
     describe '.run' do
       before do
         FileUtils.rm_rf("foo") if File.exists?("foo")

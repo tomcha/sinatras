@@ -23,16 +23,7 @@ module Sinatras
       @argv = argv
     end
 
-    def new(options)
-      appname = options[:appname]
-      if options[:appname] !~ /^[a-z_]+[a-zA-Z0-9_]*$/
-        puts 'appname format is (a-z or _ ) + (alphabet,0-9, and _)'
-        exit
-      end
-      if (File.directory?(appname))
-        puts 'appname same name of the directory exist'
-        exit
-      end
+    private def make_dir(appname)
       Dir.mkdir(appname, 0755)
       puts "make directory ./" + appname + "/"
       Dir.mkdir(appname + "/app", 0755)
@@ -45,7 +36,10 @@ module Sinatras
       puts "make directory ./" + appname + "/public/"
       Dir.mkdir(appname + "/config", 0755)
       puts "make directory ./" + appname + "/config/"
+      1
+    end
 
+    private def make_file(appname)
       File.open("./" + appname + "/Gemfile","w") do |file|
         file.print <<__EOS__
 source "https://rubygems.org"
@@ -104,7 +98,10 @@ __EOS__
 __EOS__
       end
       puts "make file ./" + appname + "/app/views/index.haml"
+      1
+    end
 
+    private def change_permission(appname)
       File.chmod(0644, "./" + appname + "/Gemfile")
       puts "change permission file ./" + appname + "/Gemfile"
       File.chmod(0644, "./" + appname + "/config.ru")
@@ -115,7 +112,10 @@ __EOS__
       puts "change permission file ./" + appname + "/app/views/layout.haml"
       File.chmod(0644, "./" + appname + "/app/views/index.haml")
       puts "change permission file ./" + appname + "/app/views/index.haml"
+      1
+    end
 
+    private def do_gitcommand(appname)
       Dir.chdir("./#{appname}") do
         init = `git init`
         puts "git init is success." if init
@@ -124,6 +124,24 @@ __EOS__
         comm = `git commit -m 'first commit'`
         puts "git commit -m 'first commit' is success." if comm
       end
+      1
+    end
+
+    def new(options)
+      appname = options[:appname]
+      if options[:appname] !~ /^[a-z_]+[a-zA-Z0-9_]*$/
+        puts 'appname format is (a-z or _ ) + (alphabet,0-9, and _)'
+        exit
+      end
+      if (File.directory?(appname))
+        puts 'appname same name of the directory exist'
+        exit
+      end
+
+      make_dir(appname)
+      make_file(appname)
+      change_permission(appname)
+      do_gitcommand(appname)
       1
     end
   end
