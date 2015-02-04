@@ -18,12 +18,14 @@ Or install it yourself as:
 
 ## Usage
 
-Usage: sinatras [-h|--help][-v|--version] <command>[<args>]
-    -v, --version                    show program version
-    -h, --help
+Usage: sinatras [-h|--help][-v|--version] <command>[<args>]  
 
-sinatras Available Commands:
-     new Appname                              create new project scalton
+    -v, --version                    show program version  
+    -h, --help  
+
+sinatras Available Commands:  
+
+     new Appname                              create new project scalton  
 
 ## Contributing
 
