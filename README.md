@@ -18,7 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Usage: sinatras [-h|--help][-v|--version] <command>[<args>]
+    -v, --version                    show program version
+    -h, --help
+
+sinatras Available Commands:
+     new Appname                              create new project scalton
 
 ## Contributing
 
