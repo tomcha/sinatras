@@ -43,9 +43,9 @@ module Sinatras
       File.open("./" + appname + "/Gemfile","w") do |file|
         file.print <<__EOS__
 source "https://rubygems.org"
-gem 'sinatra' ~> '1.4.5'
-gem 'haml' ~> '4.0.6'
-gem 'rspec' ~> '3.2.0'
+gem 'sinatra', '~> 1.4.5'
+gem 'haml', '~> 4.0.6'
+gem 'rspec', '~> 3.2.0'
 __EOS__
       end
       puts "make file ./" + appname + "/Gemfile"
