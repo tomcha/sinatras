@@ -1,6 +1,6 @@
 # Sinatras
 
-TODO: Write a gem description
+It is a tool to create a template of web application to use the 'Sinatra'.
 
 ## Installation
 
